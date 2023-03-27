@@ -7,19 +7,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    public static  String TAG = MainActivity.class.getSimpleName();
     Button  loginButton;
+    EditText nameEditText;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("MainActivity","i am in oncreate");
+        Log.i(TAG,"i am in oncreate");
         loginButton = findViewById(R.id.btnLogin);
-
+        nameEditText = findViewById(R.id.etName);
         loginButton.setOnClickListener(this);
     }
 
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String name = nameEditText.getText().toString();
+
+        Log.i(TAG,"im in onclick --"+name);
         Toast.makeText(this, "welcome to android at toshiba", Toast.LENGTH_SHORT).show();
     }
 }
