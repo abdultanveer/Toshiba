@@ -15,13 +15,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText contactEditText;
     TextView homeTv;
-    @Override
+    @Override //memory is being allocated for the activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Log.i(TAG,"i am in oncreate");
+
         //get the intent which started this activity and get the extras from it
        /* String data = getIntent().getExtras().getString("nkey");
-        Log.i(TAG,"i am in oncreate of "+TAG + data);
         //taking handle on the textview
         homeTv = findViewById(R.id.tvHome);
         homeTv.setText(data);*/
@@ -29,6 +30,42 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
          contactEditText = findViewById(R.id.etContact);
         Button selectButton = findViewById(R.id.btnSelect);
         selectButton.setOnClickListener(this);
+
+    }
+
+    @Override //activity is visible for the user
+    protected void onStart() {
+        super.onStart();
+        Log.e(TAG,"i am in onstart");
+    }
+
+    @Override //waking up  -- restore the state of the app
+    protected void onResume() {
+        super.onResume();
+        Log.w(TAG,"i am in onresume");
+
+    }
+
+    @Override //sleep -- save the state of the app
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG,"i am in onpause");
+
+    }
+
+
+    @Override //hibernate in windows
+    protected void onStop() {
+        super.onStop();
+        Log.v(TAG,"i am in onstop");
+
+    }
+
+
+    @Override //
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG,"i am in ondestroy");
 
     }
 
