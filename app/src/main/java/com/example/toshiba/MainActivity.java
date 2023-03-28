@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         String name = nameEditText.getText().toString();
-
         Log.i(TAG,"im in onclick --"+name);
-        Toast.makeText(this, "welcome to android at toshiba", Toast.LENGTH_SHORT).show();
+
         Intent hIntent = new Intent(MainActivity.this, HomeActivity.class);
+        hIntent.putExtra("nkey",name);
         startActivity(hIntent);
     }
 }
