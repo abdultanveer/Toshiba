@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static  String TAG = MainActivity.class.getSimpleName();
-    Button  loginButton;
+    Button  loginButton,dialerButton;
     EditText nameEditText;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -24,7 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG,"i am in oncreate");
         loginButton = findViewById(R.id.btnLogin);
         nameEditText = findViewById(R.id.etName);
+        dialerButton = findViewById(R.id.btnDialer);
         loginButton.setOnClickListener(this);
+        dialerButton.setOnClickListener(this);
     }
 
     public void showToast(View view) {
@@ -33,6 +36,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()){ //switch based on the id of the view that was clicked
+            case R.id.btnLogin:
+                startHomeActivity();
+                break;
+            case R.id.btnDialer:
+                Intent dIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:9880979732"));
+                startActivity(dIntent);
+                break;
+        }
+
+    }
+
+    private void startHomeActivity() {
         String name = nameEditText.getText().toString();
         Log.i(TAG,"im in onclick --"+name);
 
