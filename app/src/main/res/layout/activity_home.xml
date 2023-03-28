@@ -9,14 +9,36 @@
 
     <TextView
         android:id="@+id/tvHome"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="17dp"
         android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="79dp"
+        android:ems="10"
+        android:hint="enter name n phno"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="22dp"
+        android:text="select"
+        app:layout_constraintStart_toStartOf="@+id/etContact"
+        app:layout_constraintTop_toBottomOf="@+id/etContact" />
 </androidx.constraintlayout.widget.ConstraintLayout>
