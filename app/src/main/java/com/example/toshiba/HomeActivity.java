@@ -75,6 +75,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Intent cIntent = new Intent();
         cIntent.putExtra("ckey",contact);
         setResult(RESULT_OK,cIntent);
+        int d = add(10,20);
         finish(); //ends the activity
+        throw new NullPointerException("demo");
+    }
+
+    private int add(int i, int i1) {
+        System.out.println("adding 2 nos");
+        return i + i1;
     }
 }
